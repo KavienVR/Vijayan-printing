@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijayan Printing - Premium Custom Cloth Printing</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Hero Header */
+        header {
+            background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #4f46e5;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: #b11584;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #6366f1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        main {
+            flex: 1;
+            padding: 30px 0;
+        }
+
+        .section-container {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            padding: 0 20px;
+            font-size: 1.2rem;
+            color: #1e293b;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 16px;
+        }
+
+        /* --- 1. HORIZONTAL SCROLL SECTION (10 CARDS) --- */
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            padding: 10px 20px 25px 20px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .scroll-container::-webkit-scrollbar { display: none; }
+        .scroll-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .print-card {
+            flex: 0 0 80%;
+            scroll-snap-align: start;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 10 Pastel Shades */
+        .card-1 { background-color: #fef2f2; border: 1px solid #fee2e2; }
+        .card-2 { background-color: #fff7ed; border: 1px solid #ffedd5; }
+        .card-3 { background-color: #fefce8; border: 1px solid #fef08a; }
+        .card-4 { background-color: #f0fdf4; border: 1px solid #dcfce7; }
+        .card-5 { background-color: #ecfeff; border: 1px solid #cffafe; }
+        .card-6 { background-color: #f0f9ff; border: 1px solid #e0f2fe; }
+        .card-7 { background-color: #eef2ff; border: 1px solid #e0e7ff; }
+        .card-8 { background-color: #f5f3ff; border: 1px solid #ede9fe; }
+        .card-9 { background-color: #fdf2f8; border: 1px solid #fce7f3; }
+        .card-10 { background-color: #f8fafc; border: 1px solid #e2e8f0; }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #cbd5e1;
+        }
+
+        .card-info {
+            padding: 20px;
+        }
+
+        .card-info h3 {
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+            color: #0f172a;
+        }
+
+        .card-info p {
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.4;
+        }
+
+        /* --- 2. WHY CHOOSE US VERTICAL GRID --- */
+        .grid-container {
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .grid-item {
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .gi-1 { background-color: #f0fdf4; border-left: 5px solid #22c55e; }
+        .gi-2 { background-color: #eff6ff; border-left: 5px solid #3b82f6; }
+        .gi-3 { background-color: #faf5ff; border-left: 5px solid #a855f7; }
+        .gi-4 { background-color: #fff7ed; border-left: 5px solid #f97316; }
+
+        .grid-item h4 {
+            font-size: 1.05rem;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        .grid-item p {
+            font-size: 0.88rem;
+            color: #64748b;
+            line-height: 1.4;
+        }
+
+        /* --- 3. HOW IT WORKS SECTION --- */
+        .process-list {
+            padding: 0 20px;
+        }
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            background: white;
+            padding: 16px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .step-number {
+            background-color: #6366f1;
+            color: white;
+            font-weight: bold;
+            min-width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        .step-text h5 {
+            font-size: 1rem;
+            color: #1e293b;
+            margin-bottom: 2px;
+        }
+        .step-text p {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* --- 4. FAQ TEXT BLOCKS --- */
+        .faq-container {
+            padding: 0 20px;
+        }
+        .faq-item {
+            background-color: #f1f5f9;
+            padding: 16px;
+            border-radius: 14px;
+            margin-bottom: 12px;
+        }
+        .faq-item h5 {
+            font-size: 0.95rem;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+        .faq-item p {
+            font-size: 0.85rem;
+            color: #64748b;
+            line-height: 1.4;
+        }
+
+        /* Floating Fixed Button */
+        .cta-fixed-section {
+            padding: 20px;
+            text-align: center;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            position: sticky;
+            bottom: 0;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.03);
+            z-index: 100;
+        }
+
+        .print-btn {
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: white;
+            border: none;
+            padding: 16px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        footer {
+            background-color: #0f172a;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Vijayan Printing</h1>
+        <p>Premium Custom Cloth & Fabric Printing</p>
+        <span class="tag">✦ Mobile Studio</span>
+    </header>
+
+    <main>
+        
+        <div class="section-container">
+            <h2 class="section-title">Our Fabric Products</h2>
+            <p class="section-subtitle">Swipe horizontally to explore our 10 primary fabric print styles.</p>
+            
+            <div class="scroll-container">
+                <div class="print-card card-1">
+                    <img src="c:\Users\Vijai\Downloads\keagan-henman-XYtuOYfIg_M-unsplash.jpg">
+                    <div class="card-info">
+                        <h3>Custom T-Shirts</h3>
+                        <p>High-quality screen and digital prints on 100% premium cotton tees.</p>
+                    </div>
+                </div>
+
+                <div class="print-card card-2">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=600&q=80" alt="Hoodies & Sweatshirts" class="card-image">
+                    <div class="card-info">
+                        <h3>Hoodies & Sweatshirts</h3>
+                        <p>Cozy, durable prints perfectly styled for winter wear and streetwear brands.</p>
+                    </div>
+                </div>
+
+                <div class="print-card card-3">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Tote Bags" class="card-image">
+                    <div class="card-info">
+                        <h3>Eco Canvas Tote Bags</h3>
+                        <p>Sustainable canvas bags featuring your vibrant custom artwork and logos.</p>
+                    </div>
+                </div>
+
+                <div class="print-card card-4">
+                    <img src="nelson-ndongala-Z4RYz52ljts-unsplash.jpg">
+                    <div class="card-info">
+                        <h3>Activewear & Jerseys</h3>
+                        <p>Breathable sublimation printing engineered for team sports and gyms.</p>
+                    </div>
+                </div>
+
+                <div class="print-card card-5">
+                    <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=600&q=80" alt="Pattern Fabrics" class="card-image">
+                    <div class="card-info">
+                        <h3>All-Over Fabric Rolls</h3>
+                        <p>Continuous seamless pattern printing on silk, cotton, or polyester rolls.</p>
+                    </div>
+                </div>
+
+                <div class="print-card card-6">
+                    <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80" alt="Custom Caps" class="card-image">
+                    <div class="card-info">
+                        <h3>Caps & Bucket Hats</h3>
+                        <p>Precision heat-press transfers and detailed prints for headwear styles.</p>
+                    </div>
+                </div>
+
+                <div class="print-card card-7">
+                    <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=600&q=80" alt="Cushion Covers" class="card-image">
+                    <div class="card-info">
+                        <h3>Custom Pillow Cases</h3>
+                        <p>Vivid interior decor prints to match your specific home aesthetic.</p>
+                    </div>
+                </div>
+
+                <div class="print-card card-8">
+                    <img src="https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?auto=format&fit=crop&w=600&q=80" alt="Uniforms" class="card-image">
+                    <div class="card-info">
+                        <h3>Corporate Uniforms</h3>
+                        <p>Crisp, professional, and long-lasting fabric branding for businesses.</p>
+                    </div>
+                </div>
+
+                <div class="print-card card-9">
+                    <img src="golden-horn-bridge-FWlNleVmkbw-unsplash.jpg">
+                    <div class="card-info">
+                        <h3>Kitchen & Work Aprons</h3>
+                        <p>Heavy-duty fabric printing built to withstand tough commercial washing.</p>
+                    </div>
+                </div>
+
+                <div class="print-card card-10">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Fabric Banners" class="card-image">
+                    <div class="card-info">
+                        <h3>Fabric Flags & Banners</h3>
+                        <p>Lightweight, weather-resistant cloth printing for indoor and outdoor events.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <h2 class="section-title">Why Choose Vijayan Printing?</h2>
+            <p class="section-subtitle">We deliver premium standards on every single thread.</p>
+            
+            <div class="grid-container">
+                <div class="grid-item gi-1">
+                    <h4>No Fade Guarantee</h4>
+                    <p>Our advanced cloth infusion dyes lock colors deep within fibers ensuring your custom prints don't peel or wash off.</p>
+                </div>
+                <div class="grid-item gi-2">
+                    <h4>100% Eco-Friendly Inks</h4>
+                    <p>We use exclusively non-toxic, skin-safe, and biodegradable inks certified safe for apparel.</p>
+                </div>
+                <div class="grid-item gi-3">
+                    <h4>Bulk Ordering Discounts</h4>
+                    <p>Whether you need a single uniform piece or 10,000 corporate t-shirts, our tiered pricing scales to save you money.</p>
+                </div>
+                <div class="grid-item gi-4">
+                    <h4>Express Turnaround</h4>
+                    <p>Printed, carefully packed, and pushed straight to your front door anywhere in record time frames.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <h2 class="section-title">Simple 4-Step Process</h2>
+            <p class="section-subtitle">How we transform fabric directly from your phone screen.</p>
+            
+            <div class="process-list">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <h5>Upload Artwork</h5>
+                        <p>Send over your custom patterns, text logos, or digital pictures directly via mobile format upload.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <h5>Choose Fabric Base</h5>
+                        <p>Select your canvas: heavy cotton, flexible spandex mixtures, breathable sport meshes, or smooth linens.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <h5>Precision Custom Print</h5>
+                        <p>Our dynamic print technicians map color profiles onto fabric machines for maximum tone match accuracy.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">
+                        <h5>Hand-Inspected Delivery</h5>
+                        <p>Each unit undergoes strict seam-to-seam validation checkups before leaving the warehouse dock floors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Got questions? We have answers.</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h5>What is the minimum order quantity?</h5>
+                    <p>We do not enforce minimums! You can order just 1 custom printed shirt, bag, or pillow cover to try our top quality.</p>
+                </div>
+                <div class="faq-item">
+                    <h5>Can I wash the garments normally?</h5>
+                    <p>Yes. All of our printed garments are machine-wash friendly. We suggest washing inside-out with cold water for optimal preservation.</p>
+                </div>
+                <div class="faq-item">
+                    <h5>What file formats do you accept?</h5>
+                    <p>We accept PNG, JPG, SVG, and PDF layouts. For best quality cloth prints, high-resolution formats are strongly encouraged.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="cta-fixed-section">
+        <button class="print-btn">Launch Custom Studio</button>
+    </div>
+
+    <footer>
+        <p>By : Kavien</p>
+    </footer>
+
+</body>
+</html>
